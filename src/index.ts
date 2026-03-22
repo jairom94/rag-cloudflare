@@ -10,9 +10,16 @@
  *
  * Learn more at https://developers.cloudflare.com/workers/
  */
+export interface Env {
+	VECTORIZE: VectorizeIndex;
+	AI:Ai,
+	LOAD_SECRET: string;
+}
 
 export default {
-	async fetch(request, env, ctx): Promise<Response> {
-		return new Response('Hello World!');
+	async fetch(request: Request, env:Env): Promise<Response> {
+		return new Response("El RAG simple tutorial esta funcionado!",{
+			status:200
+		});
 	},
 } satisfies ExportedHandler<Env>;
